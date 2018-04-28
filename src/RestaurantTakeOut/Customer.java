@@ -1,5 +1,6 @@
 package RestaurantTakeOut;
 
+
 public class Customer {
 	private String myUsername = "";
 	private int myZip = 0;

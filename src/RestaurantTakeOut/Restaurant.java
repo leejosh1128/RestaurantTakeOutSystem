@@ -1,5 +1,6 @@
 package RestaurantTakeOut;
 
+
 public class Restaurant {
 	private int restId = 0;
 	private String restName = "";
