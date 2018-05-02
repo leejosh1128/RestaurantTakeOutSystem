@@ -10,8 +10,7 @@ public class RestaurantTakeOut {
 			// TODO Auto-generated method stub
 			RestaurantTakeOutDomain takeOutSystemDomain=new RestaurantTakeOutDomain();
 			takeOutSystemDomain.run();
-//			
-
+			
 		
 	}
 

@@ -30,6 +30,7 @@ public class UserInput {
 		} catch (Exception e) {
 			System.out.println("Please enter a number.");
 			return setZip();
+			
 		}
 
 	}
