@@ -1,5 +1,6 @@
 package RestaurantTakeOut;
 
+import java.util.List;
 
 public class RestaurantTakeOutDomain {
 	public boolean run() throws Exception{
@@ -13,7 +14,10 @@ public class RestaurantTakeOutDomain {
 		System.out.println("Here are the resturtant that for you. ");
 		
 		RestaurantSearch restSearch=new RestaurantSearch();
-		restSearch.getRestaurants();
+		//restSearch.getRestaurants();
+		//restSearch.deliverRestaurant(restSearch.getRestaurants(),customerInform.getZip());
+		List<Restaurant> deliRestList=restSearch.deliverRestaurant(restSearch.getRestaurants(),customerInform.getZip());
+		restSearch.pickRestaurant(deliRestList);
 		return true;
 		}
 }

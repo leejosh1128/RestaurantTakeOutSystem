@@ -1,6 +1,5 @@
 package RestaurantTakeOut;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -8,13 +7,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RestaurantSearch {
-	private String[] restaurants = new String[0];
+	
 	private Customer cust = new Customer();
-	private int custZip = 0;
+	private Restaurant rest = new Restaurant();
+
+
+	private int restZip1 = 0;
+	private int restZip2 = 0;
+	final int DELIVERYRANGE = 50;
 
 	public List<Restaurant> getRestaurants() throws Exception {
-		custZip = cust.getZip();
-		BufferedReader reader = new BufferedReader(new FileReader("/RestaurantTakeOutSystem/src/RestaurantTakeOut/restaurant.csv"));
+		cust.getZip();
+		BufferedReader reader = new BufferedReader(new FileReader("restaurant.csv"));
 
 		String line = null;
 		Scanner scanner = null;
@@ -59,4 +63,46 @@ public class RestaurantSearch {
 
 	}
 
+	public List<Restaurant> deliverRestaurant(List<Restaurant> restList, int customerZip) {
+
+	
+		restZip1 = customerZip - DELIVERYRANGE;
+		restZip2 = customerZip + DELIVERYRANGE;
+		List<Restaurant> deliRestList = new ArrayList<>();
+
+		for (int n = 0; n < restList.size(); n++) {
+			rest = restList.get(n);
+			
+			if (rest.getRestZip() >= restZip1 && rest.getRestZip() <= restZip2) {
+				deliRestList.add(rest);
+			}
+
+		}
+		
+		return deliRestList;
+
+	}
+	public String pickRestaurant(List<Restaurant> deliRestList) {
+		String restaurant="";
+		System.out.println("Please pick your resturtant");
+		System.out.println("The restaurants will deliver to your place:");
+		for (int n = 0; n < deliRestList.size(); n++) {
+
+			rest = deliRestList.get(n);
+			
+			System.out.println("Restaurant ID: "+rest.getRestId()+" Restaurant Name: "+rest.getRestName());
+			
+		}
+		System.out.println("Please enter the restaurant ID to pick the restaurant.");
+		Scanner userPick=new Scanner(System.in);
+		
+		
+		
+		
+		
+		
+		
+		
+		return restaurant;
+	}
 }
