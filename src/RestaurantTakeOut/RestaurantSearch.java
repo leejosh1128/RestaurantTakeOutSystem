@@ -86,17 +86,25 @@ public class RestaurantSearch {
 		String restaurant="";
 		System.out.println("Please pick your resturtant");
 		System.out.println("The restaurants will deliver to your place:");
+		//List<Restaurant> pickRest;
+		int[]pickRestId=new int[deliRestList.size()];
+		String[]pickRestName=new String[deliRestList.size()];
 		for (int n = 0; n < deliRestList.size(); n++) {
 
 			rest = deliRestList.get(n);
 			
 			System.out.println("Restaurant ID: "+rest.getRestId()+" Restaurant Name: "+rest.getRestName());
-			
+			pickRestId[n]=rest.getRestId();
+			pickRestName[n]=rest.getRestName();
 		}
-		System.out.println("Please enter the restaurant ID to pick the restaurant.");
-		Scanner userPick=new Scanner(System.in);
+				
+		UserInput userInput=new UserInput();
+		int pickRest=userInput.pickRest(pickRestId);
+		System.out.println("You choose "+pickRestName[pickRest]);
+	//pickRest=	userInput.pickRest(deliRestList);
 		
 		
+	//	System.out.println("You picked "+pickRest.get(0).getRestId()+"       "+pickRest.get(0).getRestName() );
 		
 		
 		

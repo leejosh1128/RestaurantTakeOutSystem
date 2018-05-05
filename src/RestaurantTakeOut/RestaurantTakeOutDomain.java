@@ -18,6 +18,7 @@ public class RestaurantTakeOutDomain {
 		//restSearch.deliverRestaurant(restSearch.getRestaurants(),customerInform.getZip());
 		List<Restaurant> deliRestList=restSearch.deliverRestaurant(restSearch.getRestaurants(),customerInform.getZip());
 		restSearch.pickRestaurant(deliRestList);
+		
 		return true;
 		}
 }
