@@ -50,14 +50,11 @@ public class MenuSearch {
 
 				menuList.add(allMenuList.get(n));
 
-				System.out.println("Resturant Name "+allMenuList.get(n).getRestName()+". Dish name " + allMenuList.get(n).getDishName() + ". Unit Price "
-						+ allMenuList.get(n).getDishPrice());
 			}
-
-			
 
 		}
 		return menuList;
 
 	}
+
 }
