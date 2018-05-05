@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MenuSearch {
+	private List<RestaurantMenu> allMenuList = new ArrayList<>();
 	private List<RestaurantMenu> menuList = new ArrayList<>();
 
-	public List<RestaurantMenu> getRestaurantMenu(String restId) throws Exception {
+	public List<RestaurantMenu> getRestaurantMenu(int restId) throws Exception {
 
 		BufferedReader reader = new BufferedReader(new FileReader("Restaurant menu.csv"));
 
@@ -25,31 +26,38 @@ public class MenuSearch {
 			while (scanner.hasNext()) {
 				String data = scanner.next();
 				if (index == 0)
-
 					rest.setRestid(Integer.parseInt(data));
+
 				else if (index == 1)
 					rest.setRestName(data);
 				else if (index == 2)
 					rest.setDishName(data);
-				else if (index == 3) {
-//					Float price=Float.parseFloat(data);
-//					DecimalFormat df = new DecimalFormat("0.00");
-//					df.setMaximumFractionDigits(2);
-					rest.setDishPrice(Float.parseFloat(data) );
+				else if (index == 3)
+					rest.setDishPrice(Float.parseFloat(data));
 
-				} else
+				else
 					System.out.println("invalid data::" + data);
 				index++;
 			}
 			index = 0;
-			menuList.add(rest);
-			//
+			allMenuList.add(rest);
 
 		}
 		reader.close();
 
-		return null;
+		for (int n = 0; n < allMenuList.size(); n++) {
+			if (allMenuList.get(n).getRestid() == restId) {
+
+				menuList.add(allMenuList.get(n));
+
+				System.out.println("Resturant Name "+allMenuList.get(n).getRestName()+". Dish name " + allMenuList.get(n).getDishName() + ". Unit Price "
+						+ allMenuList.get(n).getDishPrice());
+			}
+
+			
+
+		}
+		return menuList;
 
 	}
-
 }

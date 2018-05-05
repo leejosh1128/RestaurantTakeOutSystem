@@ -82,8 +82,8 @@ public class RestaurantSearch {
 		return deliRestList;
 
 	}
-	public String pickRestaurant(List<Restaurant> deliRestList) {
-		String restaurant="";
+	public int pickRestaurant(List<Restaurant> deliRestList) {
+		int restaurant=0;
 		System.out.println("Please pick your resturtant");
 		System.out.println("The restaurants will deliver to your place:");
 		//List<Restaurant> pickRest;
@@ -103,7 +103,7 @@ public class RestaurantSearch {
 		System.out.println("You choose "+pickRestName[pickRest]);
 	//pickRest=	userInput.pickRest(deliRestList);
 		
-		
+		restaurant=pickRestId[pickRest];
 	//	System.out.println("You picked "+pickRest.get(0).getRestId()+"       "+pickRest.get(0).getRestName() );
 		
 		
