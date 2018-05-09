@@ -8,6 +8,7 @@ public class UserInput {
 	private String username = "";
 	private int zip = 0;
 	int[] userPickRestId;
+
 	public String setUsername() {
 		System.out.println("Your username:");
 		Scanner scanName = new Scanner(System.in);
@@ -40,16 +41,25 @@ public class UserInput {
 
 	}
 
+//	public returnRestSearch(int pick) {
+//		
+//	}
 	public int pickRest(int[] pickRestId) {
 
-		 userPickRestId = pickRestId;
+		userPickRestId = pickRestId;
 		int pickRestaurant = 0;
 		try {
 			while (true) {
 				System.out.println("Please enter the restaurant ID to pick the restaurant.");
+//				System.out.println("0. Enter 0 to enter your zip code again.");
 				Scanner pickScan = new Scanner(System.in);
 				int pickId = pickScan.nextInt();
+//				if(pickId==0) {
+//					RestaurantSearch restSearch=new RestaurantSearch();
+//					return returnRestSearch(pickId);
+//				}
 				boolean contains = IntStream.of(userPickRestId).anyMatch(x -> x == pickId);
+				
 
 				if (contains == true) {
 					for (int n = 0; n < userPickRestId.length; n++) {

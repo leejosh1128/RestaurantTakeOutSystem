@@ -104,13 +104,7 @@ public class RestaurantSearch {
 	//pickRest=	userInput.pickRest(deliRestList);
 		
 		restaurant=pickRestId[pickRest];
-	//	System.out.println("You picked "+pickRest.get(0).getRestId()+"       "+pickRest.get(0).getRestName() );
-		
-		
-		
-		
-		
-		
+	
 		return restaurant;
 	}
 }

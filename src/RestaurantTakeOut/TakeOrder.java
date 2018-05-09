@@ -1,11 +1,13 @@
 package RestaurantTakeOut;
 
-public class Order {
+import java.util.List;
+
+public class TakeOrder {
     private String dishName="";
     private int number=0;
     private float totalPrice=0;
     
-    public float getTotal() {
+    public float getTotal(List<RestaurantMenu> menuList) {
     	
     	
     	
