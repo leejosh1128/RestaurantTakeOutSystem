@@ -46,7 +46,17 @@ public class RestaurantTakeOutDomain {
 		int pickRestaurantId = restSearch.pickRestaurant(deliRestList);
 		MenuSearch menuSearch = new MenuSearch();
 		List<RestaurantMenu> menuList = menuSearch.getRestaurantMenu(pickRestaurantId);
-		user.takeOrder(menuList);
+		//user.takeOrder(menuList);
+		TakeOrder order=new TakeOrder();
+		Order oneOrder=new Order();
+		List<Order> orderList=order.takeOrder(menuList);
+		for (int n = 0; n < orderList.size(); n++) {
+			oneOrder=orderList.get(n);
+			System.out.println("You order dish name "+oneOrder.dishName);
+
+			System.out.println("You order "+oneOrder.numberOfDish);
+
+		}
 		return true;
 	}
 }

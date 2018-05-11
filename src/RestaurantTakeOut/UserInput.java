@@ -1,5 +1,6 @@
 package RestaurantTakeOut;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
@@ -8,6 +9,7 @@ public class UserInput {
 	private String username = "";
 	private int zip = 0;
 	int[] userPickRestId;
+	// total Price
 
 	public String setUsername() {
 		System.out.println("Your username:");
@@ -41,9 +43,9 @@ public class UserInput {
 
 	}
 
-//	public returnRestSearch(int pick) {
-//		
-//	}
+	// public returnRestSearch(int pick) {
+	//
+	// }
 	public int pickRest(int[] pickRestId) {
 
 		userPickRestId = pickRestId;
@@ -51,15 +53,14 @@ public class UserInput {
 		try {
 			while (true) {
 				System.out.println("Please enter the restaurant ID to pick the restaurant.");
-//				System.out.println("0. Enter 0 to enter your zip code again.");
+				// System.out.println("0. Enter 0 to enter your zip code again.");
 				Scanner pickScan = new Scanner(System.in);
 				int pickId = pickScan.nextInt();
-//				if(pickId==0) {
-//					RestaurantSearch restSearch=new RestaurantSearch();
-//					return returnRestSearch(pickId);
-//				}
+				// if(pickId==0) {
+				// RestaurantSearch restSearch=new RestaurantSearch();
+				// return returnRestSearch(pickId);
+				// }
 				boolean contains = IntStream.of(userPickRestId).anyMatch(x -> x == pickId);
-				
 
 				if (contains == true) {
 					for (int n = 0; n < userPickRestId.length; n++) {
@@ -96,41 +97,5 @@ public class UserInput {
 
 	}
 
-	public float takeOrder(List<RestaurantMenu> menuList) {
-		System.out.println("-----------------------------------");
-
-		int num = 1;
-		for (int n = 0; n < menuList.size(); n++) {
-
-			System.out.println((n + 1) + ". Resturant Name " + menuList.get(n).getRestName() + ". Dish name "
-					+ menuList.get(n).getDishName() + ". Unit Price " + menuList.get(n).getDishPrice());
-
-			num++;
-
-		}
-		System.out.println(num + ". choose another resturant.");
-		Scanner orderScan = new Scanner(System.in);
-		try {
-			while (true) {
-				System.out.println("Please make you choice: ");
-
-				int orderPick = orderScan.nextInt();
-
-				if (orderPick == num) {
-					return pickRest(userPickRestId);
-				}
-
-				else {
-					System.out.println("Sorry, you have to choose a valid ID.");
-					return takeOrder(menuList);
-				}
-
-			}
-
-		} catch (Exception e) {
-			System.out.println("Please enter a number.");
-			return takeOrder(menuList);
-
-		}
-	}
+	
 }
