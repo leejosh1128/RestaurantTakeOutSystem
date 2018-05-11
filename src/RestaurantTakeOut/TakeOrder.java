@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TakeOrder {
-	float totalPrice = 0;
+
 List<Order> orderList=new ArrayList<>();
 
 int listIndex=0;
@@ -45,7 +45,7 @@ int listIndex=0;
 						orderNumber = numScan.nextInt();
 						if (orderNumber >= 0) {
 							Order order=new Order();
-							totalPrice = orderNumber * dishPrice[orderPick-1] + totalPrice;
+							//totalPrice = orderNumber * dishPrice[orderPick-1] + totalPrice;
 							order.setOrderName(dishName[orderPick-1]);
 							order.setOrderNumber(orderNumber);
 							order.setOrderPrice(dishPrice[orderPick-1]);
@@ -77,7 +77,7 @@ int listIndex=0;
 			return takeOrder(menuList);
 
 		}
-		System.out.println("total price " + totalPrice);
+	//	System.out.println("total price " + totalPrice);
 		
 		
 		
