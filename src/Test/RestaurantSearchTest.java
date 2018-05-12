@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import RestaurantTakeOut.Restaurant;
 import RestaurantTakeOut.RestaurantSearch;
+import RestaurantTakeOut.UserInput;
 
 public class RestaurantSearchTest {
 RestaurantSearch test=new RestaurantSearch();
@@ -43,7 +44,32 @@ RestaurantSearch test=new RestaurantSearch();
 
 	@Test
 	public void testPickRestaurant() {
+		List<Restaurant> deliRestList=new ArrayList<>();
+		deliRestList.add(new Restaurant(2,"Olive Garden",55171,"6126126001","Intlian" ));
+		deliRestList.add(new Restaurant(3,"In and Out",55211,"6126126002","American"));
+		deliRestList.add(new Restaurant(4,"El Mexican Restaurant",55251,"6126126003","Mecican"));
 		
+		int restaurant=0;
+		System.out.println("Please pick your resturtant");
+		System.out.println("The restaurants will deliver to your place:");
+		//List<Restaurant> pickRest;
+		int[]pickRestId=new int[deliRestList.size()];
+		String[]pickRestName=new String[deliRestList.size()];
+		for (int n = 0; n < deliRestList.size(); n++) {
+Restaurant rest=new Restaurant();
+			rest = deliRestList.get(n);
+			
+			System.out.println("Restaurant ID: "+rest.getRestId()+" Restaurant Name: "+rest.getRestName());
+			pickRestId[n]=rest.getRestId();
+			pickRestName[n]=rest.getRestName();
+		}
+				
+		UserInput userInput=new UserInput();
+		int pickRest=userInput.pickRest(pickRestId);
+		System.out.println("You choose "+pickRestName[pickRest]);
+	//pickRest=	userInput.pickRest(deliRestList);
+		
+		restaurant=pickRestId[pickRest];
 	}
 
 }
