@@ -54,20 +54,20 @@ public class RestaurantTakeOutDomain {
 		float total = 0;
 		//BigDecimal totalPrice;
 		System.out.println("------------------------------------------------");
-		System.out.println("Thank you"+ customerInform.getUserName());
+		System.out.println("Thank you, "+ customerInform.getUserName());
 	
 		for (int n = 0; n < orderList.size(); n++) {
 			oneOrder = orderList.get(n);
-			System.out.println("You order dish name " + oneOrder.dishName);
+			System.out.println("You order dish name: " + oneOrder.dishName);
 
-			System.out.println("You order " + oneOrder.numberOfDish);
+			System.out.println("You order: " + oneOrder.numberOfDish);
 			total = total + oneOrder.numberOfDish * oneOrder.unitPrice;
 //			totalPrice = new BigDecimal(Float.toString(total));
 //			totalPrice = totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);    
 			total=Math.round(total*100)/100;
 		}
 		
-		System.out.println("You need to pay "+ total);
+		System.out.println("You need to pay: "+ total);
 		return true;
 	}
 }
